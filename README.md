@@ -87,12 +87,9 @@ System Restore is a feature designed to create a snapshot of the current working
 
 The script was developed and tested using the latest Windows 10 and 11 Home and Pro distributions in English and Portuguese languages and aims to be fully compatible with the most up-to-date version of them, you can run the script on other distributions, but the code is still designed primarily for Home/Pro and is not compatible with versions before Windows 10.
 
-- [x]  Windows 10 (English/Portuguese)
-    - [x]  Home
-    - [x]  Pro
-- [x]  Windows 11 (English/Portuguese)
-    - [x]  Home
-    - [x]  Pro
+- [x]  Windows 10 LTSC (English/Portuguese)
+    - [x]  2019
+    - [x]  2021
 
 
 ## **Known side effects**
