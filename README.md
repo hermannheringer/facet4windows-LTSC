@@ -4,19 +4,20 @@
   - [**Description**](#description)
   - [**Before you run!**](#before-you-run)
   - [**Liability**](#liability)
-  - [****Execution****](#execution)
+  - [**Execution**](#execution)
   - [**Interactivity**](#interactivity)
   - [**Compatibility**](#compatibility)
   - [**Known side effects**](#known-side-effects)
   - [**Known issues**](#known-issues)
   - [**Undo changes**](#undo-changes)
+  - [**Finally**](#finally)
   - [**Thanks To**](#thanks-to)
 
 
 ## **Description**
 
 
-Firstly, this is a PowerShell script for automating routine tasks that I use on my computers and made for Windows 10 and 11 distributions to make it lighter and perform better while retaining as much of the desired functionality as possible on computers and notebooks with weak CPU and low RAM.
+Firstly, this is a PowerShell script for automating routine tasks that I use on my computers and made for Windows 10 LTSC 2021 to make it lighter and perform better while retaining as much of the desired functionality as possible on computers and notebooks with weak CPU and low RAM.
 
 This is by no means an `anti-tracking` script, a script for IT administrators -these are at another level of complexity, or a script aimed at general automation that you might as well perform in the GUI - doing this won't kill you, nor are `debloatware` scripts like thousands available on the web and although we emphasize the latter, as it contributes a lot to the overall lightness of the system, this script is a mix of everything above and good practices aiming only at a part that in the author's views deserves to be better explored.
 
@@ -53,7 +54,7 @@ It would be very daring on my part, given the simplicity of the script, to furth
 This script has taken dozens of hours and years of experimentation on my part, self-learning, and is being shared freely for use, distribution, and study. I'm not responsible for anything. All script is provided as it is, and you can use it at your own risk.
 
 
-## ****Execution****
+## **Execution**
 
 The script is divided into a module with all the functions and a preset file containing only the call of the procedures to be executed. Directly running the script.cmd file solves all these complexities for you, such as elevating privileges.
 
@@ -85,11 +86,11 @@ System Restore is a feature designed to create a snapshot of the current working
 
 ## **Compatibility**
 
-The script was developed and tested using the latest Windows 10 and 11 Home and Pro distributions in English and Portuguese languages and aims to be fully compatible with the most up-to-date version of them, you can run the script on other distributions, but the code is still designed primarily for Home/Pro and is not compatible with versions before Windows 10.
+The script was developed and tested using the latest Windows 10 LTSC in English and Portuguese languages and aims to be fully compatible with the most up-to-date version of them, you can run the script on other distributions, but the code is still designed primarily for LTSC and is not compatible with versions before Windows 10.
 
-- [x]  Windows 10 LTSC (English/Portuguese)
-    - [x]  2019
-    - [x]  2021
+- [x]  Windows 10 (English/Portuguese)
+    - [x]  LTSC 2019
+    - [x]  LTSC 2021
 
 
 ## **Known side effects**
@@ -132,12 +133,23 @@ To revert the entire script, follow these steps:
 
 1. Open Command Prompt `hold down the Windows Key, and Press R` on your keyboard.
 2. Type `rstrui.exe` in the window, and then press Enter.
-3. Find a restore point with a name like `System Restore Point dated 00/00/0000 00:00:00 before running facet4 script`. It should be the newest restore point there.
+3. Find a restore point with a name like `System Restore Point dated 00/00/0000 00:00:00 before running LTSC script`. It should be the newest restore point there.
 4. Follow the on-screen instructions to complete the system restore.
 
 ### Revert functions
 
 If you want to revert some specific function, create and add this opposite (or equivalent) name function that reverts the required behaviour to the default and append it to the present file.
+
+
+## **Finally**
+
+If you understand what you are doing, consider downloading and running Microsoft Autoruns to check your system.
+
+This utility, which has the most comprehensive knowledge of auto-starting locations of any startup monitor, shows you what programs are configured to run during system bootup or login, and when you start various built-in Windows applications like Internet Explorer, Explorer and media players. These programs and drivers include ones in your startup folder, Run, RunOnce, and other Registry keys. Autoruns reports Explorer shell extensions, toolbars, browser helper objects, Winlogon notifications, auto-start services, and much more. Autoruns goes way beyond other autostart utilities.
+
+https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns
+
+![autoruns_v13.png](README/autoruns_v13.png)
 
 
 ## **Thanks To**
