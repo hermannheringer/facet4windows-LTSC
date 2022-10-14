@@ -1,1 +1,1 @@
-@powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0ltsc.ps1" -include "%~dp0ltsc.psm1" -preset "%~dpn0.preset"
+@powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0ltscWPF.ps1" -include "%~dp0ltsc.ps1" -include "%~dp0ltsc.psm1" -preset "%~dpn0.preset"
