@@ -24,6 +24,11 @@ RestorePoint
 
 
 
+### Application Tweaks ###
+InstallWinget
+
+
+
 ### Features Tweaks ###
 DisableAppCompat                    #Disabling Application Compatibility Program.
 DisableBackgroundApp                #Disabling All Background Application Access.
