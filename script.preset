@@ -39,14 +39,20 @@ EnableMemoryCompression             #Enabling Memory Compression.
 DisablePerformanceCounters          #Disable All Performance Counters.
 SetPowerManagment                   #Optimizing Power Managment scheme.             
 RemoveFeaturesKeys                  #Removing registry keys where features will be deleted.
-RemoveXboxFeatures                  #Disabling Xbox features.
 RemoveScheduledTasks                #Disables scheduled tasks that are considered unnecessary.
 SetSplitThreshold                   #Reduce servicing costs by changing Split Threshold.
 DisableStorageSense                 #Disabling Storage Sense.
 AllowMiracast                       #Allow Projection To PC Miracast feature.
 TurnWSLlight                        #Set some WSL Performance Tweaks.
 DisableVBS_HVCI                     #Turn off Virtualization-based security.
-DisableWindowsDefender              #Disables Windows Defender
+DisableWindowsDefender              #Disables Windows Defender.
+
+
+### Features Tweaks-GPU ###
+RemoveXboxFeatures                  #Disabling Xbox features.
+EnableGPUScheduling                 #Turn On Hardware Accelerated GPU Scheduling.
+EnableVRR_AutoHDR                   #Turn On Variable Refresh Rate - Auto HDR - Optimizations for Windowed Games.
+EnableEdge_GPU                      #Turn On Hardware Accelerated GPU on Microsoft Edge Canary.
 
 
 ### Privacy Tweaks ###
@@ -86,6 +92,7 @@ DisableServices                     #Stopping and disabling unnecessary services
 
 ### Speed Up System ###
 DisableAutoplayHandler              #he AutoplayHandler element specifies a UWP device app that should appear as the recommended AutoPlay action when a user plugs in a device.
+PrintScreenToSnippingTool           #Use print screen to open snipping tool.
 
 # Disk Cache Optimization
 SetWaitToKillAppTimeout             #Optimize program response time to improve system response speed.
