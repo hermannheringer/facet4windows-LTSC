@@ -265,6 +265,18 @@ Function DisablePerformanceCounters {
 
 
 
+Function DisableStartupEventTraceSession  {
+	Write-Host "Disable All Startup Event Trace Session."
+		Get-ChildItem -Path "HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger" | ForEach-Object {
+			$Var = $_.PsPath
+				If ((Test-Path $Var)) {
+					Set-ItemProperty -Path $Var -Name "Start" -Type DWord -Value 0x00000000
+				}
+			}
+}
+
+
+
 function SetPowerManagment {
 	Write-Host "Disabling Hibernation and Optimizing Performance on Balanced Performance scheme."
 	<#
@@ -858,32 +870,32 @@ function RemoveXboxFeatures {
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\PolicyManager\default\ApplicationManagement\AllowGameDVR" -Name "value" -Type DWord -Value 0x00000000
 
 	try	{
-	Stop-Service "xbgm" -ea Stop
+	#Stop-Service "xbgm" -ea Stop
 	Set-Service "xbgm" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "xbgm service does not exist on this device."	}
 
 	Write-Output "Disable GameDVR and Broadcast used for game recordings and live broadcasts."
 	try	{
-	Stop-Service "BcastDVRUserService" -ea Stop
+	#Stop-Service "BcastDVRUserService" -ea Stop
 	Set-Service "BcastDVRUserService" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "BcastDVRUserService does not exist on this device."	}
 
 	try	{
-	Stop-Service "BcastDVRUserService_48486de" -ea Stop
+	#Stop-Service "BcastDVRUserService_48486de" -ea Stop
 	Set-Service "BcastDVRUserService_48486de" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "BcastDVRUserService_48486de service does not exist on this device."	}
 
 	try	{
-	Stop-Service "BcastDVRUserService_5a109" -ea Stop
+	#Stop-Service "BcastDVRUserService_5a109" -ea Stop
 	Set-Service "BcastDVRUserService_5a109" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "BcastDVRUserService_5a109 service does not exist on this device."	}
 
 	try	{
-	Stop-Service "BcastDVRUserService_6fa5a" -ea Stop
+	#Stop-Service "BcastDVRUserService_6fa5a" -ea Stop
 	Set-Service "BcastDVRUserService_6fa5a" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "BcastDVRUserService_6fa5a service does not exist on this device."	}
@@ -1170,13 +1182,13 @@ Function DisableDataCollection {
 function DisableDiagTrack {
 	Write-Output "Stopping and disabling Connected User Experiences and Telemetry Service."
 	try	{
-	Stop-Service "DiagTrack" -ea Stop
+	#Stop-Service "DiagTrack" -ea Stop
 	Set-Service "DiagTrack" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "DiagTrack service does not exist on this device."	}
 
 	try	{
-	Stop-Service "diagnosticshub.standardcollector.service" -ea Stop
+	#Stop-Service "diagnosticshub.standardcollector.service" -ea Stop
 	Set-Service "diagnosticshub.standardcollector.service" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "diagnosticshub.standardcollector.service does not exist on this device."	}
@@ -1238,7 +1250,7 @@ Function DisableLocationTracking {
 	Set-ItemProperty $LocationConfig Status -Type DWord -Value 0x00000000
 
 	try	{
-	Stop-Service "lfsvc" -ea Stop
+	#Stop-Service "lfsvc" -ea Stop
 	Set-Service "lfsvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "lfsvc service does not exist on this device."	}
@@ -1353,7 +1365,7 @@ Useful for Windows tablet devices with mobile (3G/4G) connectivity
 function DisableWAPPush {
 	Write-Host "Stopping and disabling WAP Push Service."
 	try	{
-	Stop-Service "dmwappushservice" -ea Stop
+	#Stop-Service "dmwappushservice" -ea Stop
 	Set-Service "dmwappushservice" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "dmwappushservice does not exist on this device."	}
@@ -1364,7 +1376,7 @@ function DisableServices {
 
 	Write-Output "Stopping and disabling AdobeARM Service."
 	try	{
-	Stop-Service "AdobeARMservice" -ea Stop
+	#Stop-Service "AdobeARMservice" -ea Stop
 	Set-Service "AdobeARMservice" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "AdobeARMservice does not exist on this device."	}
@@ -1372,7 +1384,7 @@ function DisableServices {
 
 	Write-Host "Disables Application Management."
 	try	{
-	Stop-Service "AppMgmt" -ea Stop
+	#Stop-Service "AppMgmt" -ea Stop
 	Set-Service "AppMgmt" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "AppMgmt service does not exist on this device."	}
@@ -1380,7 +1392,7 @@ function DisableServices {
 
 	Write-Host "Disables Certificate Propagation Service. Copies user certificates and root certificates from smart cards into the current user's certificate store."
 	try	{
-	Stop-Service "CertPropSvc" -ea Stop
+	#Stop-Service "CertPropSvc" -ea Stop
 	Set-Service "CertPropSvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "CertPropSvc does not exist on this device."	}
@@ -1388,7 +1400,7 @@ function DisableServices {
 
 	Write-Host "Disables ActiveX Installer."
 	try	{
-	Stop-Service "AxInstSV" -ea Stop
+	#Stop-Service "AxInstSV" -ea Stop
 	Set-Service "AxInstSV" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "AxInstSV service does not exist on this device."	}
@@ -1396,7 +1408,7 @@ function DisableServices {
 
 	Write-Host "Disables offline files service."
 	try	{
-	Stop-Service "CscService" -ea Stop
+	#Stop-Service "CscService" -ea Stop
 	Set-Service "CscService" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "CscService does not exist on this device."	}
@@ -1404,7 +1416,7 @@ function DisableServices {
 
 	Write-Host "Disables fax."
 	try	{
-	Stop-Service "Fax" -ea Stop
+	#Stop-Service "Fax" -ea Stop
 	Set-Service "Fax" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "Fax service does not exist on this device."	}
@@ -1412,7 +1424,7 @@ function DisableServices {
 
 	Write-Host "Disables File History Service."
 	try	{
-	Stop-Service "fhsvc" -ea Stop
+	#Stop-Service "fhsvc" -ea Stop
 	Set-Service "fhsvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "fhsvc service does not exist on this device."	}
@@ -1420,9 +1432,9 @@ function DisableServices {
 
 	Write-Host "Stopping and disabling Home Groups services."
 	try	{
-	Stop-Service "HomeGroupListener" -ea Stop
+	#Stop-Service "HomeGroupListener" -ea Stop
 	Set-Service "HomeGroupListener" -StartupType Disabled
-	Stop-Service "HomeGroupProvider" -ea Stop
+	#Stop-Service "HomeGroupProvider" -ea Stop
 	Set-Service "HomeGroupProvider" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "HomeGroupListener/HomeGroupProvider services does not exist on this device."	}
@@ -1440,7 +1452,7 @@ function DisableServices {
 
 	Write-Output "Stopping and disabling HP Diagnostics Service."
 	try	{
-	Stop-Service "HPDiagsCap" -ea Stop
+	#Stop-Service "HPDiagsCap" -ea Stop
 	Set-Service "HPDiagsCap" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "HPDiagsCap service does not exist on this device."	}
@@ -1468,7 +1480,7 @@ function DisableServices {
 
 	Write-Output "Stopping and disabling HP Print Scan Doctor Service."
 	try	{
-	Stop-Service "HPPrintScanDoctorService" -ea Stop
+	#Stop-Service "HPPrintScanDoctorService" -ea Stop
 	Set-Service "HPPrintScanDoctorService" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "HPPrintScanDoctorService service does not exist on this device."	}
@@ -1486,7 +1498,7 @@ function DisableServices {
 
 	Write-Output "Stopping and disabling HP Telemetry Service."
 	try	{
-	Stop-Service "HpTouchpointAnalyticsService" -ea Stop
+	#Stop-Service "HpTouchpointAnalyticsService" -ea Stop
 	Set-Service "HpTouchpointAnalyticsService" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "HpTouchpointAnalyticsService does not exist on this device."	}
@@ -1494,7 +1506,7 @@ function DisableServices {
 
 	Write-Host "Disables Microsoft iSCSI Initiator Service."
 	try	{
-	Stop-Service "MSiSCSI" -ea Stop
+	#Stop-Service "MSiSCSI" -ea Stop
 	Set-Service "MSiSCSI" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "MSiSCSI service does not exist on this device."	}
@@ -1502,7 +1514,7 @@ function DisableServices {
 
 	Write-Host "Disables The Network Access Protection (NAP) agent service. It collects and manages health information for client computers on a network."
 	try	{
-	Stop-Service "napagent" -ea Stop
+	#Stop-Service "napagent" -ea Stop
 	Set-Service "napagent" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "napagent service does not exist on this device."	}
@@ -1514,7 +1526,7 @@ function DisableServices {
 
 	Write-Host "Disables Peer Networking Identity Manager."
 	try	{
-	Stop-Service "p2pimsvc" -ea Stop
+	#Stop-Service "p2pimsvc" -ea Stop
 	Set-Service "p2pimsvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "p2pimsvc service does not exist on this device."	}
@@ -1522,7 +1534,7 @@ function DisableServices {
 
 	Write-Host "Disables Peer Networking Grouping."	
 	try	{
-	Stop-Service "p2psvc" -ea Stop
+	#Stop-Service "p2psvc" -ea Stop
 	Set-Service "p2psvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "p2psvc service does not exist on this device."	}
@@ -1530,7 +1542,7 @@ function DisableServices {
 
 	Write-Host "Disable BranchCache service.This service caches network content from peers on the local subnet."	
 	try	{
-	Stop-Service "PeerDistSvc" -ea Stop
+	#Stop-Service "PeerDistSvc" -ea Stop
 	Set-Service "PeerDistSvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "PeerDistSvc does not exist on this device."	}
@@ -1538,7 +1550,7 @@ function DisableServices {
 
 	Write-Host "Disable Performance Logs and Alerts Service."
 	try	{
-	Stop-Service "pla" -ea Stop
+	#Stop-Service "pla" -ea Stop
 	Set-Service "pla" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "pla service does not exist on this device."	}
@@ -1546,7 +1558,7 @@ function DisableServices {
 
 	Write-Host "Disables Peer Name Resolution Protocol."
 	try	{
-	Stop-Service "PNRPsvc" -ea Stop
+	#Stop-Service "PNRPsvc" -ea Stop
 	Set-Service "PNRPsvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "PNRPsvc service does not exist on this device."	}
@@ -1554,7 +1566,7 @@ function DisableServices {
 
 	Write-Host "Disables Windows Remote Registry service."
 	try	{
-	Stop-Service "RemoteRegistry" -ea Stop
+	#Stop-Service "RemoteRegistry" -ea Stop
 	Set-Service "RemoteRegistry" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "RemoteRegistry service does not exist on this device."	}
@@ -1567,7 +1579,7 @@ function DisableServices {
 	#>
 	Write-Host "Disabling Smart Card Removal Policy Service."
 	try	{
-	Stop-Service "ScPolicySvc" -ea Stop
+	#Stop-Service "ScPolicySvc" -ea Stop
 	Set-Service "ScPolicySvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "ScPolicySvc service does not exist on this device."	}
@@ -1581,7 +1593,7 @@ function DisableServices {
 	#>
 	Write-Host "Disables Simple Network Management Protocol (SNMP) service."
 	try	{
-	Stop-Service "SNMPTRAP" -ea Stop
+	#Stop-Service "SNMPTRAP" -ea Stop
 	Set-Service "SNMPTRAP" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "SNMPTRAP service does not exist on this device."	}
@@ -1613,7 +1625,7 @@ function DisableServices {
 
 	Write-Host "Disables WebClient service."
 	try	{
-	Stop-Service "WebClient" -ea Stop
+	#Stop-Service "WebClient" -ea Stop
 	Set-Service "WebClient" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "WebClient service does not exist on this device."	}
@@ -1621,7 +1633,7 @@ function DisableServices {
 
 	Write-Host "Disables Windows Error Reporting."
 	try	{
-	Stop-Service "WerSvc" -ea Stop
+	#Stop-Service "WerSvc" -ea Stop
 	Set-Service "WerSvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "WerSvc service does not exist on this device."	}
@@ -1629,7 +1641,7 @@ function DisableServices {
 
 	Write-Host "Disables Windows Remote Management."
 	try	{
-	Stop-Service "WinRM" -ea Stop
+	#Stop-Service "WinRM" -ea Stop
 	Set-Service "WinRM" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "WinRM service does not exist on this device."	}
@@ -1637,7 +1649,7 @@ function DisableServices {
 
 	Write-Host "Disables Windows Insider Service. Caution! Windows Insider will not work anymore."
 	try	{
-	Stop-Service "wisvc" -ea Stop
+	#Stop-Service "wisvc" -ea Stop
 	Set-Service "wisvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "wisvc service does not exist on this device."	}
@@ -1645,7 +1657,7 @@ function DisableServices {
 
 	Write-Host "Stopping and disabling Windows Search Indexing service."
 	try	{
-	Stop-Service "WSearch" -ea Stop
+	#Stop-Service "WSearch" -ea Stop
 	Set-Service "WSearch" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "WSearch service does not exist on this device."	}
@@ -1653,7 +1665,7 @@ function DisableServices {
 
 	Write-Host "Stopping and disabling Diagnostic Policy service."
 	try	{
-	Stop-Service "DPS" -ea Stop
+	#Stop-Service "DPS" -ea Stop
 	Set-Service "DPS" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "DPS service does not exist on this device."	}
@@ -1662,7 +1674,7 @@ function DisableServices {
 
 	Write-Host "Stopping and disabling Program Compatibility Assistant service."
 	try	{
-	Stop-Service "PcaSvc" -ea Stop
+	#Stop-Service "PcaSvc" -ea Stop
 	Set-Service "PcaSvc" -StartupType Disabled
 	} catch [SystemException]{
 	write-host "PcaSvc service does not exist on this device."	}
