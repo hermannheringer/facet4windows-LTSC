@@ -93,6 +93,7 @@ DisableServices                     #Stopping and disabling unnecessary services
 
 ### Speed Up System ###
 DisableAutoplayHandler              #he AutoplayHandler element specifies a UWP device app that should appear as the recommended AutoPlay action when a user plugs in a device.
+DisableBingSearch                   #Disabling Bing Search in Start Menu.
 PrintScreenToSnippingTool           #Use print screen to open snipping tool.
 
 # Disk Cache Optimization
