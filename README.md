@@ -10,14 +10,14 @@
   - [**Known side effects**](#known-side-effects)
   - [**Known issues**](#known-issues)
   - [**Undo changes**](#undo-changes)
-  - [**Final considerations**](#finally)
+  - [**Final considerations**](#final-considerations)
   - [**Thanks To**](#thanks-to)
 
 
 ## **Description**
 
 
-#### Enhanced PowerShell Script for Windows Performance and Latency Optimization
+#### PowerShell script for Windows gaming, performance and latency optimization.
 
 Introduction:
 
@@ -43,9 +43,11 @@ Based on my experience, extensive optimisation of Windows Services proved to be 
 
 #### Fresh installation of Windows LTSC 21H2 with all drivers and updates installed after applying this script :
 
+
 CPU:
 
 ![cpu.png](README/cpu.png)
+
 
 Memory:
 
@@ -69,6 +71,7 @@ Memory:
 
 ```
 🚫 Never run scripts from strangers without checking the code first!
+    Research indicates that a significant 76% of ransomware attacks originate from PowerShell scripts.
 ```
 
 ```
@@ -103,7 +106,7 @@ The function name can be prefixed with an exclamation mark `!`, which will inste
 
 ### Log
 
-The script automatically stores the output of the script execution in a folder like `C:\Temp\ltsc` .
+The script automatically stores the output of the script execution in a folder like `C:\Temp\facet4` .
 
 ### System Restore Point
 
@@ -114,11 +117,17 @@ System Restore is a feature designed to create a snapshot of the current working
 
 ## **Compatibility**
 
-The script was developed and tested using the latest Windows 10 LTSC in English and Portuguese languages and aims to be fully compatible with the most up-to-date version of them, you can run the script on other distributions, but the code is still designed primarily for LTSC and is not compatible with versions before Windows 10.
+The script was developed and tested using the latest Windows 10 and 11 Home and Pro distributions in English and Portuguese languages and aims to be fully compatible with the most up-to-date version of them, you can run the script on other distributions, but the code is still designed primarily for Home/Pro and is not compatible with versions before Windows 10.
 
 - [x]  Windows 10 (English/Portuguese)
     - [x]  LTSC 2019
     - [x]  LTSC 2021 (21H2)
+- [x]  Windows 10 (English/Portuguese)
+    - [x]  Home
+    - [x]  Pro
+- [x]  Windows 11 (English/Portuguese)
+    - [x]  Home
+    - [x]  Pro
 
 
 ## **Known side effects**
@@ -161,7 +170,7 @@ To revert the entire script, follow these steps:
 
 1. Open Command Prompt `hold down the Windows Key, and Press R` on your keyboard.
 2. Type `rstrui.exe` in the window, and then press Enter.
-3. Find a restore point with a name like `System Restore Point dated 00/00/0000 00:00:00 before running LTSC script`. It should be the newest restore point there.
+3. Find a restore point with a name like `System Restore Point dated 00/00/0000 00:00:00 before running facet4 script`. It should be the newest restore point there.
 4. Follow the on-screen instructions to complete the system restore.
 
 ### Revert functions
@@ -173,6 +182,7 @@ The code at the end of each instruction contains the default values for Windows 
 You are welcome to experiment and modify the functions as you wish.
 
 ## **Final considerations**
+
 If you understand what you are doing, consider downloading and running Microsoft Autoruns to check your system.
 
 This utility, which has the most comprehensive knowledge of auto-starting locations of any startup monitor, shows you what programs are configured to run during system bootup or login, and when you start various built-in Windows applications like Internet Explorer, Explorer and media players. These programs and drivers include ones in your startup folder, Run, RunOnce, and other Registry keys. Autoruns reports Explorer shell extensions, toolbars, browser helper objects, Winlogon notifications, auto-start services, and much more. Autoruns goes way beyond other autostart utilities.
@@ -196,14 +206,24 @@ https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns
 ![Above4G.png](README/Above4G.png)
 
 
-#### 4.Explore RAID Configuration: For users with an AMD Ryzen platform, it's worth exploring the possibility of utilizing RAID 0 for SATA or NVMe devices. Even notebooks with locked BIOS and two NVMe ports might support this. Research how to implement this configuration for improved storage performance. It's pure luxury, but it is fantastic!
+#### 4.Explore RAID Configuration: For users with an AMD Ryzen platform, it's worth exploring the possibility of utilizing RAID 0 for SATA or NVMe devices. Even notebooks with locked BIOS and two NVMe ports might support this `unofficially`. Search how to implement this configuration for improved storage performance. It's pure luxury, but it is fantastic!
+
+![Omen-Raid0.png](README/Omen-Raid0.png)
+
+
 
 #### 5.Enable Message Signaled Interrupts. Be aware that enabling MSI for a driver without support will break your Windows!
 
 ![MSI.png](README/MSI.png)
 
 
-##### Following these guidelines can significantly optimize your system's performance after running this script. Remember to conduct in-depth research and understand the potential implications of each modification before proceeding. Your own discretion and caution are advised, as the author takes no responsibility for any adverse outcomes.
+
+#### 6.And lastly, don't forget, if it's a fresh install of the operating system, select "English (World)" as the time zone; it pretty much solves the initial bloatware problem on your new Windows. This does not apply to the LTSC or IoT distros, as it already comes with reduced OS footprint. Credits to mastermind @ThioJoe!
+
+![ThioJoe.png](README/ThioJoe.png)
+
+
+#### Following these guidelines can significantly optimize your system's performance after running this script. Remember to conduct in-depth research and understand the potential implications of each modification before proceeding. Your own discretion and caution are advised, as the author takes no responsibility for any adverse outcomes.
 
 ## **Thanks To**
 
