@@ -1,37 +1,37 @@
 # Facet4 Windows 10/11 distribution
 # Author: Hermann Heringer
-# Version : 0.1.7
+# Version : 0.1.8
 # Source: https://github.com/hermannheringer/
 
 
 
-### If the name starts with an exclamation point (!), the function will not be executed. ###
+###  If the name starts with an exclamation point (!), the function will not be executed.  ###
 
 
 
-### Require administrator privileges ###
+###  Require administrator privileges  ###
 RequireAdmin
 
 
 
-### Transcript everything that happens during a session to a LOG file. ###
+###  Transcript everything that happens during a session to a LOG file.  ###
 LogScript
 
 
 
-### Creating a System Restore Point on the local computer before starting. ###
+###  Creating a System Restore Point on the local computer before starting. ###
 RestorePoint
 
 
 
-### Application  ###
+###  Application  ###
 InstallWinget
 
 
 
 ###  Debloat  ###
 !DebloatBlacklist                    #Get rid of nonsense apps that come with the OS.
-AvoidDebloatReturn                  #Adding Registry keys to prevent bloatware apps from returning and removes some suggestions settings.
+!AvoidDebloatReturn                  #Adding Registry keys to prevent bloatware apps from returning and removes some suggestions settings.
 SetMixedReality                     #Setting Mixed Reality Portal value to 0 so that you can uninstall it in Settings.
 
 
@@ -74,6 +74,7 @@ SetDoReport                         #Disable Windows error reporting function to
 DisableFeedbackExperience           #Stops the Windows Feedback Experience from sending anonymous data.
 !DisableLocationTracking            #Disabling this will break Microsoft 'Find My Device' functionality.
 DisableTailoredExperiences          #Disabling Tailored Experiences.
+BlockTelemetrybyHosts               #Windows has a lot of telemetry and spying and connects to third-party data collection sites. We will block this.
 
 
 
@@ -154,12 +155,11 @@ SetBootOptimizeFunction             #Disable Windows auto disk defragmetation.
 
 
 ###  Network Optimizations  ###
+SetInterruptModeration              #Disabling Packet Coalescing - InterruptModeration.
 SetIRPStackSize                     #Improve network performance.
 SettingTimeService                  #Setting BIOS time to UTC and fixing any inconsistency.
-DisableWiFiSense                   #Disabling Wi-Fi Sense.
+DisableWiFiSense                    #Disabling Wi-Fi Sense.
 DisableWFPlogs                      #Disable WFP logs.
-
-
 SetDefaultTTL                       #Optimize default TTL to decrease bandwidth loss and increase available bandwidth.
 SetFastForwarding                   #Optimize network fast forwarding mechanism to get better internet speed.
 SetMaxConnectionsPerServerIE        #Add more IE concurrent connections.
