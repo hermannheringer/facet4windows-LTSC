@@ -1,5 +1,5 @@
 ![logo.png](README/logo.png)
-# FACET4 WINDOWS 10 LTSC 2021
+# FACET4 WINDOWS 10 LTSC 2021 & WINDOWS 11 LTSC 2024
 
   - [**Description**](#description)
   - [**Before you run!**](#before-you-run)
@@ -17,7 +17,7 @@
 ## **Description**
 
 
-#### PowerShell script for performance and latency optimization in Data Science on Windows.
+#### PowerShell script for performance optimization and Windows latency reduction for a better data analysis experience.
 
 Introduction:
 
