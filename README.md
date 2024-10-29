@@ -120,12 +120,15 @@ System Restore is a feature designed to create a snapshot of the current working
 The script was developed and tested using the latest Windows 10 and 11 Home and Pro distributions in English and Portuguese languages and aims to be fully compatible with the most up-to-date version of them, you can run the script on other distributions, but the code is still designed primarily for Home/Pro and is not compatible with versions before Windows 10.
 
 - [x]  Windows 10 (English/Portuguese)
-    - [x]  LTSC 2019
-    - [x]  LTSC 2021 (21H2)
-- [x]  Windows 10 (English/Portuguese)
+    - [x]  Enterprise LTSC 2019 (1709)
+    - [x]  Enterprise IoT LTSC 2019 (1709)
+    - [x]  Enterprise LTSC 2021 (21H2)
+    - [x]  Enterprise IoT LTSC 2021 (21H2)
     - [x]  Home
     - [x]  Pro
 - [x]  Windows 11 (English/Portuguese)
+    - [x]  Enterprise LTSC 2024 (26100)
+    - [x]  Enterprise IoT LTSC 2024 (26100)
     - [x]  Home
     - [x]  Pro
 
@@ -154,7 +157,7 @@ You can easily change this option by accessing the steps below:
 
 When trying to change a specific key when using an Azure Active Directory account.
 
-The problem is easily worked around by performing this modification manually using Regedit.
+The problem is easily worked around by performing this modification manually using `Regedit`.
 
 
 ## **Undo changes**
